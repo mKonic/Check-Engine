@@ -1,10 +1,20 @@
 #include <iostream>
-#include "Core.h"
+#include <Check.h>
 
-__declspec(dllimport) void print();
+class Application : public Check::Engine
+{
+public:
+	Application() 
+	{
 
+	}
 
-int main() {
-	print();
-	std::cin.get();
+	~Application()
+	{
+
+	}
+};
+
+Check::Engine* Check::CreateApplication() {
+	return new Application;
 }
