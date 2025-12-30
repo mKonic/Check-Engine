@@ -1,3 +1,6 @@
 [submodule "cmake"]
 	path = cmake
 	url = https://github.com/mKonic/premake-cmake.git
+[submodule "CheckCore/vendor/spdlog"]
+	path = CheckCore/vendor/spdlog
+	url = https://github.com/gabime/spdlog.git
