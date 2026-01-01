@@ -2,10 +2,10 @@
 
 // For use by app
 
-#include "Core/Engine.h"
-#include "Core/Log.h"
+#include "Check/Engine.h"
+#include "Check/Log.h"
 
 
 //----Entry Point------------
-#include "Core/EntryPoint.h"
+#include "Check/EntryPoint.h"
 //---------------------------

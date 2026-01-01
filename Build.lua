@@ -11,8 +11,14 @@ workspace "CheckEngine"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+includeDir = {}
+includeDir["GLFW"] = "CheckCore/vendor/GLFW/include"
+
 group ""
 include "CheckApp/Build-App.lua"
 group ""
 include "CheckCore/Build-Core.lua"
 group ""
+include "CheckCore/vendor/GLFW"
+group ""
+

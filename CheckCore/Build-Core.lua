@@ -5,11 +5,22 @@ project "CheckCore"
    targetdir "bin/%{cfg.buildcfg}"
    staticruntime "On"
 
+   pchheader "cepch.h"
+   pchsource "Source/cepch.cpp"
+
    files { "Source/**.h", "Source/**.cpp" }
 
    includedirs
    {
-      "vendor/spdlog/include"
+      "vendor/spdlog/include",
+      "Source",
+      "vendor/GLFW/include"
+   }
+
+   links
+   {
+      "GLFW",
+      "opengl32.lib"
    }
 
 
@@ -28,11 +39,13 @@ project "CheckCore"
 
    filter "configurations:Debug"
       defines { "CE_DEBUG" }
+      buildoptions { "/MDd" }
       runtime "Debug"
       symbols "On"
 
    filter "configurations:Release"
       defines { "CE_RELEASE" }
+      buildoptions { "/MD" }
       runtime "Release"
       optimize "On"
       symbols "On"
@@ -40,6 +53,7 @@ project "CheckCore"
    filter "configurations:Dist"
       kind "WindowedApp"
       defines { "CE_DIST" }
+      buildoptions { "/MD" }
       runtime "Release"
       optimize "On"
       symbols "Off"

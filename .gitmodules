@@ -4,3 +4,6 @@
 [submodule "CheckCore/vendor/spdlog"]
 	path = CheckCore/vendor/spdlog
 	url = https://github.com/gabime/spdlog.git
+[submodule "CheckCore/vendor/GLFW"]
+	path = CheckCore/vendor/GLFW
+	url = https://github.com/mKonic/glfw.git

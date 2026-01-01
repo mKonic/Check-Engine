@@ -1,9 +1,19 @@
 #pragma once
 
-#include <memory>
+
 
 #include "Core.h"
 #include "spdlog/spdlog.h"
+#include "spdlog/fmt/ostr.h"
+
+// Enable formatting for any type with a ToString() method
+template <typename T>
+struct fmt::formatter<T, std::enable_if_t<std::is_member_function_pointer_v<decltype(&T::ToString)>, char>>
+	: fmt::formatter<std::string> {
+	auto format(const T& obj, fmt::format_context& ctx) const {
+		return fmt::formatter<std::string>::format(obj.ToString(), ctx);
+	}
+};
 
 namespace Check {
 	class CHECK_API Log
